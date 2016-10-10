@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Main">
+  <ClassDiagramComponents>
+    <Class name="Contocorrente" package="" visibility="public" xPosition="54.0" yPosition="59.0">
+      <Fields>
+        <Field name="iban" type="String" visibility="private"/>
+        <Field name="saldo" type="float" visibility="private"/>
+        <Field name="movimenti" type="ArrayList" visibility="private"/>
+        <Field name="n_movimenti" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="iban"/>
+          <Argument type="fload" name="saldo"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="prelievo" returnType="void" visibility="public">
+          <Argument type="int" name="prelievo"/>
+        </Method>
+        <Method name="versamento" returnType="void" visibility="public">
+          <Argument type="int" name="versamento"/>
+        </Method>
+        <Method name="getSaldo" returnType="int" visibility="public"/>
+        <Method name="printSaldo" returnType="void" visibility="public"/>
+        <Method name="printMovimenti" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Movimento" package="" visibility="public" xPosition="13.0" yPosition="371.0">
+      <Fields>
+        <Field name="codice" type="int" visibility="private"/>
+        <Field name="data" type="Date" visibility="private"/>
+        <Field name="importo" type="float" visibility="private"/>
+        <Field name="causale" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="index"/>
+          <Argument type="Date" name="data"/>
+          <Argument type="float" name="importo"/>
+          <Argument type="String" name="causale"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getCodice" returnType="int" visibility="public"/>
+        <Method name="getData" returnType="Date" visibility="public"/>
+        <Method name="getImporto" returnType="float" visibility="public"/>
+        <Method name="getCausale" returnType="String" visibility="public"/>
+        <Method name="setCodice" returnType="void" visibility="public">
+          <Argument type="int" name="codice"/>
+        </Method>
+        <Method name="setData" returnType="void" visibility="public">
+          <Argument type="Date" name="data"/>
+        </Method>
+        <Method name="setImporto" returnType="void" visibility="public">
+          <Argument type="float" name="importo"/>
+        </Method>
+        <Method name="setCausale" returnType="void" visibility="public">
+          <Argument type="String" name="causale"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations/>
+</ClassDiagram>

@@ -1,15 +1,16 @@
 package contocorrente;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Movimento {
 
     private int     codice;
-    private Date    data;
+    private long    data;
     private float   importo;
     private String  causale;
 
-    public Movimento(int codice, Date data, float importo, String causale) {
+    public Movimento(int codice, long data, float importo, String causale) {
         this.codice     = codice;
         this.data       = data;
         this.importo    = importo;
@@ -20,8 +21,10 @@ public class Movimento {
         return this.codice;
     }
 
-    public Date getData() {
-        return this.data;
+    public String getData() {
+        SimpleDateFormat sdf = new SimpleDateFormat();
+        String date = sdf.format(new Date(data));
+        return date;
     }
 
     public float getImporto() {
@@ -34,10 +37,6 @@ public class Movimento {
 
     public void setCodice(int codice) {
         this.codice = codice;
-    }
-
-    public void setData(Date data) {
-        this.data = data;
     }
 
     public void setImporto(float importo) {

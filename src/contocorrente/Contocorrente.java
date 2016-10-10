@@ -17,6 +17,12 @@ public class Contocorrente {
     }
 
     public void prelievo(int prelievo) {
+        if(prelievo > 0 && prelievo > this.saldo){
+           this. saldo -= prelievo;
+           this.movimenti.add(new Movimento(++this.n_movimenti,System.currentTimeMillis(),prelievo,"prelievo"));
+        }
+        else
+            System.err.println("Importo errato !");
     }
 
     public void versamento(int versamento) {

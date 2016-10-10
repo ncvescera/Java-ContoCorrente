@@ -16,6 +16,10 @@ public class Ese01TIPSID {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Contocorrente conto = new Contocorrente("iiosonoiban",100);
+        
+        conto.prelievo(20);
+        conto.printMovimenti();
     }
     
 }

@@ -16,7 +16,7 @@ public class Contocorrente {
         this.n_movimenti    =   0;
     }
 
-    public void prelievo(int prelievo) {
+    public void prelievo(float prelievo) {
         if(prelievo > 0 && prelievo < this.saldo){
            this. saldo -= prelievo;
            this.movimenti.add(new Movimento(++this.n_movimenti,System.currentTimeMillis(),prelievo,"prelievo"));

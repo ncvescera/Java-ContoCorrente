@@ -19,6 +19,8 @@ public class Ese01TIPSID {
         Contocorrente conto = new Contocorrente("iiosonoiban",100);
         
         conto.prelievo(20);
+        conto.versamento(500);
+        
         conto.printMovimenti();
     }
     

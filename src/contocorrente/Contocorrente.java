@@ -25,7 +25,13 @@ public class Contocorrente {
             System.err.println("Importo errato !");
     }
 
-    public void versamento(int versamento) {
+    public void versamento(float versamento) {
+        if(versamento > 0){
+            this.saldo += versamento;
+            this.movimenti.add(new Movimento(++this.n_movimenti,System.currentTimeMillis(),versamento,"versamento"));
+        }
+        else
+            System.err.println("Importo errato !");
     }
 
     public float getSaldo() {

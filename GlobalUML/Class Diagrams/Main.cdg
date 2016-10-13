@@ -58,7 +58,7 @@
         </Method>
       </Methods>
     </Class>
-    <Class name="Correntista" package="" visibility="public" xPosition="218.0" yPosition="470.0">
+    <Class name="Correntista" package="" visibility="public" xPosition="161.0" yPosition="470.0">
       <Fields>
         <Field name="nome" type="String" visibility="private"/>
         <Field name="ndg" type="String" visibility="private"/>
@@ -66,6 +66,8 @@
       </Fields>
       <Constructors>
         <Constructor visibility="public">
+          <Argument type="String" name="nome"/>
+          <Argument type="String" name="ndg"/>
           <Argument type="Contocorrente" name="conto"/>
         </Constructor>
       </Constructors>

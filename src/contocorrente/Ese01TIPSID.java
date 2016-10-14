@@ -11,24 +11,25 @@ public class Ese01TIPSID {
      */
     public static void main(String[] args) throws InterruptedException {
         // TODO code application logic here
-        Contocorrente conto = new Contocorrente("iiosonoiban",301);
+        Contocorrente conto = new Contocorrente("iiosonoiban",200);
         /*
         conto.prelievo(20);
         conto.versamento(500);
         
         conto.printMovimenti();
         */
-        Correntista uno = new Correntista("UNO","aaa",conto);
-        Correntista due = new Correntista("DUE","bbb",conto);
+        Correntista uno = new Correntista("UNO","aaa",conto,200);
+        Correntista due = new Correntista("DUE","bbb",conto,100);
         
         uno.start();
         due.start();
-        
+        /*
         due.join();
         uno.join();
         
         conto.printMovimenti();
         System.out.println(conto.getSaldo());
+        */
     }
     
 }

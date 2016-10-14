@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package contocorrente;
 
 /**
@@ -14,8 +9,26 @@ public class Ese01TIPSID {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         // TODO code application logic here
+        Contocorrente conto = new Contocorrente("iiosonoiban",301);
+        /*
+        conto.prelievo(20);
+        conto.versamento(500);
+        
+        conto.printMovimenti();
+        */
+        Correntista uno = new Correntista("UNO","aaa",conto);
+        Correntista due = new Correntista("DUE","bbb",conto);
+        
+        uno.start();
+        due.start();
+        
+        due.join();
+        uno.join();
+        
+        conto.printMovimenti();
+        System.out.println(conto.getSaldo());
     }
     
 }

@@ -37,12 +37,22 @@ public class Contocorrente {
     }
 
     public synchronized void versamento(float versamento) {
+        while(!this.isFree){
+            try{
+                wait();
+            } catch(InterruptedException e){
+                System.err.println(e);
+            }
+        }
+        this.isFree = false;
         if(versamento > 0){
             this.saldo += versamento;
             this.movimenti.add(new Movimento(++this.n_movimenti,System.currentTimeMillis(),versamento,"versamento"));
         }
         else
             System.err.println("Importo errato !");
+        this.isFree = true;
+        notify();
     }
 
     public float getSaldo() {
@@ -55,7 +65,7 @@ public class Contocorrente {
 
     public void printMovimenti() {
         for(Movimento elem:this.movimenti){
-            System.out.println("Codice: "+elem.getCodice()+"\nData: "+elem.getData()+"\nImporto: "+elem.getImporto()+"\nCausale: "+elem.getCausale());
+            System.out.println("Codice: "+elem.getCodice()+"\nData: "+elem.getData()+"\nImporto: "+elem.getImporto()+"\nCausale: "+elem.getCausale()+"\n");
         }
     }
 }

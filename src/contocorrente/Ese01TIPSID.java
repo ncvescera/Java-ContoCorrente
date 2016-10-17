@@ -18,8 +18,8 @@ public class Ese01TIPSID {
         
         conto.printMovimenti();
         */
-        Correntista uno = new Correntista("UNO","aaa",conto,100);
-        Correntista due = new Correntista("DUE","bbb",conto,200);
+        Correntista uno = new Correntista("UNO","aaa",conto,"prelievo",100);
+        Correntista due = new Correntista("DUE","bbb",conto,"versamento",200);
         
         uno.start();
         due.start();

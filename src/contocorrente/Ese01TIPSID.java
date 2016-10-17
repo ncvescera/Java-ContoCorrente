@@ -18,15 +18,15 @@ public class Ese01TIPSID {
         
         conto.printMovimenti();
         */
-        Correntista uno = new Correntista("UNO","aaa",conto,200);
-        Correntista due = new Correntista("DUE","bbb",conto,100);
+        Correntista uno = new Correntista("UNO","aaa",conto,100);
+        Correntista due = new Correntista("DUE","bbb",conto,200);
         
         uno.start();
         due.start();
-        /*
-        due.join();
-        uno.join();
         
+        //uno.join();
+        //due.join();
+        /*
         conto.printMovimenti();
         System.out.println(conto.getSaldo());
         */

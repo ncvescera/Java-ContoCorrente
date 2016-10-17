@@ -18,27 +18,15 @@ public class Correntista extends Thread{
     }
     
     @Override
-    synchronized public void run(){
-        //while(this.conto.getSaldo() > 0)
-        //this.conto.versamento(20);
-        //if(this.conto.getSaldo()>20)
-        //for(int i = 0; i < this.conto.getSaldo();i++)
-        if(this.conto.getSaldo() >= this.soldi){
+    public void run(){
+        
             this.conto.prelievo(this.soldi);
+            
             System.out.println("Il thread "+this.nome+" ha prelevato: "+this.soldi);
             System.out.println("Saldo: "+this.conto.getSaldo());
             this.conto.printMovimenti();
-            this.notify();
-        }
-        //else if(this.conto.getSaldo()-this.soldi <= 0){
-        //    this.
-        //}
-        else{
-            try {
-                this.wait();
-            } catch (InterruptedException ex) {
-                Logger.getLogger(Correntista.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
+           
+       
+
     }
 }

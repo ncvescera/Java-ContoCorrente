@@ -9,6 +9,7 @@ public class Contocorrente {
     private ArrayList<Movimento>    movimenti;
     private int                     n_movimenti;
 
+    private boolean isFree = true;
     public Contocorrente(String iban, float saldo) {
         this.iban           =   iban;
         this.saldo          =   saldo;
@@ -16,16 +17,26 @@ public class Contocorrente {
         this.n_movimenti    =   0;
     }
 
-    public void prelievo(float prelievo) {
+    public synchronized void prelievo(float prelievo) {
+        while(!this.isFree){
+            try{
+                wait();
+            } catch(InterruptedException e){
+                System.err.println(e);
+            }
+        }
+        this.isFree = false;
         if(prelievo > 0 && prelievo <= this.saldo){
            this. saldo -= prelievo;
            this.movimenti.add(new Movimento(++this.n_movimenti,System.currentTimeMillis(),prelievo,"prelievo"));
         }
         else
             System.err.println("Importo errato !");
+        this.isFree = true;
+        notify();
     }
 
-    public void versamento(float versamento) {
+    public synchronized void versamento(float versamento) {
         if(versamento > 0){
             this.saldo += versamento;
             this.movimenti.add(new Movimento(++this.n_movimenti,System.currentTimeMillis(),versamento,"versamento"));

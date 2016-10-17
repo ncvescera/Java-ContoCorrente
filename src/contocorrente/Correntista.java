@@ -23,8 +23,8 @@ public class Correntista extends Thread{
             this.conto.prelievo(this.soldi);
             
             System.out.println("Il thread "+this.nome+" ha prelevato: "+this.soldi);
-            System.out.println("Saldo: "+this.conto.getSaldo());
-            this.conto.printMovimenti();
+            //System.out.println("Saldo: "+this.conto.getSaldo());
+            //this.conto.printMovimenti();
            
        
 

@@ -1,7 +1,7 @@
 package contocorrente;
 
 /**
- *
+ * Classe di avvio contenente il main
  * @author ncvescera
  */
 public class Ese01TIPSID {

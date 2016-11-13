@@ -3,7 +3,7 @@ package contocorrente;
 import java.util.ArrayList;
 
 /**
- *
+ * Classe condivisa dove più threads accedono per modificare la variabile condivisa saldo
  * @author ncvescera
  */
 public class Contocorrente {
@@ -16,9 +16,9 @@ public class Contocorrente {
     private boolean isFree = true;
 
     /**
-     *
-     * @param iban
-     * @param saldo
+     * Metodo costruttore
+     * @param iban identificativo del conto
+     * @param saldo soldi con cui inizierà il conto
      */
     public Contocorrente(String iban, float saldo) {
         this.iban           =   iban;
@@ -28,8 +28,8 @@ public class Contocorrente {
     }
 
     /**
-     *
-     * @param prelievo
+     * Preleva i soldi dal conto
+     * @param prelievo soldi da prelevare
      */
     public synchronized void prelievo(float prelievo) {
         while(!this.isFree){
@@ -51,8 +51,8 @@ public class Contocorrente {
     }
 
     /**
-     *
-     * @param versamento
+     * Versa i soldi nel conto
+     * @param versamento soldi da versare
      */
     public synchronized void versamento(float versamento) {
         while(!this.isFree){
@@ -74,22 +74,23 @@ public class Contocorrente {
     }
 
     /**
-     *
-     * @return
+     * Restituisce il saldo attuale
+     * @return saldo del conto
      */
     public float getSaldo() {
         return this.saldo;
     }
 
     /**
-     *
+     *  Stampa il saldo
      */
     public void printSaldo() {
         System.out.println(this.saldo);
     }
 
     /**
-     *
+     *  Stampa la lista movimenti
+     * @see Movimento
      */
     public void printMovimenti() {
         for(Movimento elem:this.movimenti){

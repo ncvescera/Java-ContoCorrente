@@ -4,7 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- *
+ * Classe per simulare un movimento bancario
  * @author ncvescera
  */
 public class Movimento {
@@ -15,11 +15,11 @@ public class Movimento {
     private String  causale;
 
     /**
-     *
-     * @param codice
-     * @param data
-     * @param importo
-     * @param causale
+     * Metodo costruttore
+     * @param codice codice identificativo univoco del movimento
+     * @param data data in cui è stato effettuato il movimento
+     * @param importo somma che è stata versata o prelevata
+     * @param causale può essere "prelievo" o "versamento"
      */
     public Movimento(int codice, long data, float importo, String causale) {
         this.codice     = codice;
@@ -29,16 +29,16 @@ public class Movimento {
     }
 
     /**
-     *
-     * @return
+     * Ritorna il codice del movimento
+     * @return codice del movimento
      */
     public int getCodice() {
         return this.codice;
     }
 
     /**
-     *
-     * @return
+     * Ritorna la data del movimento sotto forma di stringa
+     * @return data
      */
     public String getData() {
         SimpleDateFormat sdf = new SimpleDateFormat();
@@ -47,32 +47,32 @@ public class Movimento {
     }
 
     /**
-     *
-     * @return
+     * Ritorna l'importo del movimento
+     * @return importo
      */
     public float getImporto() {
         return this.importo;
     }
 
     /**
-     *
-     * @return
+     * Ritorna la causale del movimento
+     * @return causale
      */
     public String getCausale() {
         return this.causale;
     }
 
     /**
-     *
-     * @param codice
+     * Modifica il codice univoco del movimento
+     * @param codice codice univoco del movimento
      */
     public void setCodice(int codice) {
         this.codice = codice;
     }
 
     /**
-     *
-     * @param importo
+     * Modifica l'importo del movimento
+     * @param importo soldi prelevati o versati
      */
     public void setImporto(float importo) {
         if(importo > 0)
@@ -82,8 +82,8 @@ public class Movimento {
     }
 
     /**
-     *
-     * @param causale
+     * Modifica la causale del movimento
+     * @param causale causale del movimento
      */
     public void setCausale(String causale) {
         if(causale.equals("prelievo") || causale.equals("versamento"))

@@ -28,7 +28,7 @@
         <Method name="printMovimenti" returnType="void" visibility="public"/>
       </Methods>
     </Class>
-    <Class name="Correntista" package="contocorrente" visibility="public" xPosition="320.0" yPosition="20.0">
+    <Class name="Correntista" package="contocorrente" visibility="public" xPosition="423.0" yPosition="9.0">
       <Fields>
         <Field name="nome" type="String" visibility="private"/>
         <Field name="ndg" type="String" visibility="private"/>
@@ -49,7 +49,7 @@
         <Method name="run" returnType="void" visibility="public"/>
       </Methods>
     </Class>
-    <Class name="Ese01TIPSID" package="contocorrente" visibility="public" xPosition="620.0" yPosition="20.0">
+    <Class name="Ese01TIPSID" package="contocorrente" visibility="public" xPosition="45.0" yPosition="378.0">
       <Fields/>
       <Constructors/>
       <Methods>
@@ -58,7 +58,7 @@
         </Method>
       </Methods>
     </Class>
-    <Class name="Movimento" package="contocorrente" visibility="public" xPosition="920.0" yPosition="20.0">
+    <Class name="Movimento" package="contocorrente" visibility="public" xPosition="423.0" yPosition="274.0">
       <Fields>
         <Field name="codice" type="int" visibility="private"/>
         <Field name="data" type="long" visibility="private"/>

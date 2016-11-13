@@ -1,5 +1,9 @@
 package contocorrente;
 
+/**
+ *
+ * @author ncvescera
+ */
 public class Correntista extends Thread{
     private String          nome;
     private String          ndg;
@@ -7,6 +11,14 @@ public class Correntista extends Thread{
     private float           soldi;
     private String          azione;
     
+    /**
+     *
+     * @param nome
+     * @param ndg
+     * @param conto
+     * @param azione
+     * @param soldi
+     */
     public Correntista(String nome, String ndg, Contocorrente conto, String azione, float soldi){
         super();
         

@@ -2,7 +2,7 @@ package contocorrente;
 
 /**
  *
- * @author informatica
+ * @author ncvescera
  */
 public class Ese01TIPSID {
 

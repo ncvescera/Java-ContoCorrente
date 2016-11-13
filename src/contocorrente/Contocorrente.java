@@ -2,6 +2,10 @@ package contocorrente;
 
 import java.util.ArrayList;
 
+/**
+ *
+ * @author ncvescera
+ */
 public class Contocorrente {
 
     private String                  iban;
@@ -10,6 +14,12 @@ public class Contocorrente {
     private int                     n_movimenti;
 
     private boolean isFree = true;
+
+    /**
+     *
+     * @param iban
+     * @param saldo
+     */
     public Contocorrente(String iban, float saldo) {
         this.iban           =   iban;
         this.saldo          =   saldo;
@@ -17,6 +27,10 @@ public class Contocorrente {
         this.n_movimenti    =   0;
     }
 
+    /**
+     *
+     * @param prelievo
+     */
     public synchronized void prelievo(float prelievo) {
         while(!this.isFree){
             try{
@@ -36,6 +50,10 @@ public class Contocorrente {
         notify();
     }
 
+    /**
+     *
+     * @param versamento
+     */
     public synchronized void versamento(float versamento) {
         while(!this.isFree){
             try{
@@ -55,14 +73,24 @@ public class Contocorrente {
         notify();
     }
 
+    /**
+     *
+     * @return
+     */
     public float getSaldo() {
         return this.saldo;
     }
 
+    /**
+     *
+     */
     public void printSaldo() {
         System.out.println(this.saldo);
     }
 
+    /**
+     *
+     */
     public void printMovimenti() {
         for(Movimento elem:this.movimenti){
             System.out.println("Codice: "+elem.getCodice()+"\nData: "+elem.getData()+"\nImporto: "+elem.getImporto()+"\nCausale: "+elem.getCausale()+"\n");

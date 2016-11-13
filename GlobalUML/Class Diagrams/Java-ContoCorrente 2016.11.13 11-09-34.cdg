@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Java-ContoCorrente">
+  <ClassDiagramComponents>
+    <Class name="Contocorrente" package="contocorrente" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="iban" type="String" visibility="private"/>
+        <Field name="saldo" type="float" visibility="private"/>
+        <Field name="movimenti" type="ArrayList&lt;Movimento&gt;" visibility="private"/>
+        <Field name="n_movimenti" type="int" visibility="private"/>
+        <Field name="isFree" type="boolean" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="iban"/>
+          <Argument type="float" name="saldo"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="prelievo" returnType="void" visibility="public" isSynchronized="true">
+          <Argument type="float" name="prelievo"/>
+        </Method>
+        <Method name="versamento" returnType="void" visibility="public" isSynchronized="true">
+          <Argument type="float" name="versamento"/>
+        </Method>
+        <Method name="getSaldo" returnType="float" visibility="public"/>
+        <Method name="printSaldo" returnType="void" visibility="public"/>
+        <Method name="printMovimenti" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Correntista" package="contocorrente" visibility="public" xPosition="320.0" yPosition="20.0">
+      <Fields>
+        <Field name="nome" type="String" visibility="private"/>
+        <Field name="ndg" type="String" visibility="private"/>
+        <Field name="conto" type="Contocorrente" visibility="private"/>
+        <Field name="soldi" type="float" visibility="private"/>
+        <Field name="azione" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nome"/>
+          <Argument type="String" name="ndg"/>
+          <Argument type="Contocorrente" name="conto"/>
+          <Argument type="String" name="azione"/>
+          <Argument type="float" name="soldi"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="run" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Ese01TIPSID" package="contocorrente" visibility="public" xPosition="620.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Movimento" package="contocorrente" visibility="public" xPosition="920.0" yPosition="20.0">
+      <Fields>
+        <Field name="codice" type="int" visibility="private"/>
+        <Field name="data" type="long" visibility="private"/>
+        <Field name="importo" type="float" visibility="private"/>
+        <Field name="causale" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="codice"/>
+          <Argument type="long" name="data"/>
+          <Argument type="float" name="importo"/>
+          <Argument type="String" name="causale"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getCodice" returnType="int" visibility="public"/>
+        <Method name="getData" returnType="String" visibility="public"/>
+        <Method name="getImporto" returnType="float" visibility="public"/>
+        <Method name="getCausale" returnType="String" visibility="public"/>
+        <Method name="setCodice" returnType="void" visibility="public">
+          <Argument type="int" name="codice"/>
+        </Method>
+        <Method name="setImporto" returnType="void" visibility="public">
+          <Argument type="float" name="importo"/>
+        </Method>
+        <Method name="setCausale" returnType="void" visibility="public">
+          <Argument type="String" name="causale"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="conto" source="contocorrente.Correntista" target="contocorrente.Contocorrente" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="movimenti" source="contocorrente.Contocorrente" target="contocorrente.Movimento" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Movimento&gt;"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
